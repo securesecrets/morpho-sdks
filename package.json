@@ -50,5 +50,8 @@
   },
   "commitlint": {
     "extends": ["@commitlint/config-conventional"]
+  },
+  "dependencies": {
+    "pnpm": "^10.12.1"
   }
 }

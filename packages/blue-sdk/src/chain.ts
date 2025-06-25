@@ -16,6 +16,7 @@ export enum ChainId {
   PlumeMainnet = 98866,
   CampMainnet = 123420001114,
   KatanaMainnet = 747474,
+  CosmosDevnet = 4231,
 }
 
 export interface ChainMetadata {
@@ -48,6 +49,13 @@ export namespace ChainUtils {
   };
 
   export const CHAIN_METADATA: Record<ChainId, ChainMetadata> = {
+    [ChainId.CosmosDevnet]: {
+      name: "Cosmos Devnet",
+      id: ChainId.CosmosDevnet,
+      nativeCurrency: { name: "Atom", symbol: "ATOM", decimals: 6 },
+      explorerUrl: "https://explorer.cosmos.network",
+      identifier: "cosmos-devnet",
+    },
     [ChainId.EthMainnet]: {
       name: "Ethereum",
       id: ChainId.EthMainnet,

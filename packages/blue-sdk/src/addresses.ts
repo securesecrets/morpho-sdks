@@ -61,6 +61,16 @@ export interface ChainAddresses {
 }
 
 const _addressesRegistry = {
+  [ChainId.CosmosDevnet]: {
+    morpho: "0x3b06EA748cEe7DcF64E0c2b0ED8e86A50a",
+    adaptiveCurveIrm: "0x1B08687aa01eC1E4580bc980aB1435BfDb",
+    metaMorphoFactory: "0x2EC4bA91AfD5BC93Ac09d43E5c518fcB0c",
+    wNative: NATIVE_ADDRESS,
+    bundler3: {
+      bundler3: "0xf8c3c730C7a041f494d5da01CF084c262e030527",
+      generalAdapter1: "0x59f1f08F1cB3e7497F0f01dB9aE6AA3Ab1E4ac63",
+    },
+  },
   [ChainId.EthMainnet]: {
     morpho: "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
     permit2: "0x000000000022D473030F116dDEE9F6B43aC78BA3",
@@ -413,6 +423,9 @@ export const getChainAddresses = (chainId: number): ChainAddresses => {
  * - unwrapped token has same number of decimals than wrapped tokens.
  */
 const _unwrappedTokensMapping: Record<number, Record<Address, Address>> = {
+  [ChainId.CosmosDevnet]: {
+    [_addressesRegistry[ChainId.CosmosDevnet].wNative]: NATIVE_ADDRESS,
+  },
   [ChainId.EthMainnet]: {
     [_addressesRegistry[ChainId.EthMainnet].wbIB01]:
       _addressesRegistry[ChainId.EthMainnet].bIB01,
